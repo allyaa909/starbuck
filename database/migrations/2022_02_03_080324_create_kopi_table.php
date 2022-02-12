@@ -15,9 +15,10 @@ class CreateKopiTable extends Migration
     {
         Schema::create('kopi', function (Blueprint $table) {
             $table->id();
+            $table->string('img');
             $table->string('nama'); 
             $table->integer('harga');
-            $table->foreignId('size_id')->nullable();   
+            $table->integer('jumlah');
             $table->timestamps();
         });
     }

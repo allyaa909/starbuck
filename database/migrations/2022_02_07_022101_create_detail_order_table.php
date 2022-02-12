@@ -16,7 +16,10 @@ class CreateDetailOrderTable extends Migration
         Schema::create('detail_order', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kopi_id');
-            $table->foreignId('order_id');
+            $table->foreignId('user_id');
+            $table->foreignId('size_id');
+            $table->integer('jumlah');
+            $table->integer('total');
             $table->timestamps();
         });
     }

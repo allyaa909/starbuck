@@ -16,6 +16,7 @@ class CreateAddtocartTable extends Migration
         Schema::create('addtocart', function (Blueprint $table) {
             $table->id();
             $table->foreignId('detail_order_id');
+            $table->integer('total');
             $table->timestamps();
         });
     }

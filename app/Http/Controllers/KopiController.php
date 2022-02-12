@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\kopi;
+use App\Models\detail_order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;  
 
 class KopiController extends Controller
 {
@@ -13,10 +15,14 @@ class KopiController extends Controller
     ]);
 }
     public function lihat(){
-    $kopi = kopi::all();
+    $pesanan = Auth::user()->name;
+    $price = detail_order::where('total',Auth::user()->id)->get();
+    $detail = detail_order::where('user_id',Auth::user()->id)->get();
     return view ('checkout', [
-        "kopi" => $kopi
-    ]);
+        "detail" => $detail,
+        "pesanan" => $pesanan,
+        "price" => $price
+        ]);
 
     }
 }

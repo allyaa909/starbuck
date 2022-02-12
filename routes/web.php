@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KopiController;
+use App\Http\Controllers\AddtocartController;
 use App\Http\Controllers\Backend\OrderController;
 
 /*
@@ -30,3 +31,8 @@ Route::get('/checkout', function () {
 Route::get('/order', [App\Http\Controllers\KopiController::class, 'lihatmenu']);
 Route::get('/check', [App\Http\Controllers\Backend\OrderController::class, 'store']);
 Route::get('/checkout', [App\Http\Controllers\KopiController::class, 'lihat']);
+Route::get('/checkout/{id}', [App\Http\Controllers\AddtocartController::class, 'ambil']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

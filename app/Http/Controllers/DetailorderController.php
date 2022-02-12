@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\detail_order;
 use Illuminate\Http\Request;
 
@@ -13,5 +14,11 @@ class DetailorderController extends Controller
         'detail' => $detail
     ]);
  }
+ public function user(){
+    $user = User::all();
+    return view('checkout', [
+        'user' => $user
+    ]);
+ }  
 }
 

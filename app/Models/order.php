@@ -19,4 +19,5 @@ class order extends Model
     public function detail_order(){
         return $this->hasMany(detail_order::class);
     }
+
 }

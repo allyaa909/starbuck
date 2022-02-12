@@ -15,6 +15,7 @@ class CreateOrderTable extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('addtocart_id');
             $table->integer('total');   
             $table->timestamps();
         });

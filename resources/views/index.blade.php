@@ -14,76 +14,51 @@
   <body>
       <div class="jumbotron jumbotron-fluid" id = "jum" style="height: 500px;">
         <div class="container text-center">
-          <img src="img/bg2.png" alt="" class="rounded-circle" width="150px" height="140px" data-tilt data-tilt-scale="1.1">
-          <p class="lead mt-3" style="color: white;">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+          <div class="row">
+            <div class="col">
+              <a href="/register" style="float: right; border-radius: 50px;" class="ml-3 btn btn-dark">Register</a>
+              <a href="/login" style="float: right; border-radius: 50px;" class="mr-1 btn btn-dark">Login</a>
+          </div>  
+          </div>
+          <img src="img/bg2.png" alt="" class="rounded-circle" width="150px" height="140px">
+          <p class="lead mt-5 ketik" style="color: white; font-size: 70px;"><q>Start Your Day <br>With Coffee</q></p>
         </div>
       </div>
+      
 <div class="judul text-center mb-5">
     <h1>Daftar Menu</h1>
 </div>
       <div class="container">
         <div class="row">
           <div class="col">
-            <div class="cards mt-4" style="width: 16rem;">
-                <img src="/img/kopi1.png" class="card-img-top" alt="..." style="max-width: 230px;" data-tilt data-tilt-scale="1.1">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
+            <img src="/img/kopi1.jpg" alt="" class="img rounded-circle" width="250px" height="250px" data-tilt data-tilt-scale="1.4">
           </div>
           <div class="col">
-            <div class="cards mt-5" style="width: 16rem;">
-                <img src="/img/kopi2.png" class="card-img-top" alt="..." style="max-width: 230px;" data-tilt data-tilt-scale="1.1">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. </p>
-                </div>
-              </div>
+            <img src="/img/kopi2.jpg" alt="" class="img rounded-circle" width="250px" height="250px" data-tilt data-tilt-scale="1.4">
           </div>
           <div class="col">
-            <div class="cards" style="width: 18rem;">
-                <img src="/img/kopi3.png" class="card-img-top" alt="..." style="max-width: 230px;" data-tilt data-tilt-scale="1.1">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
+            <div class="latte">
+            <img src="/img/kopi3.jpg" alt="" class="img rounded-circle" width="250px" height="250px" data-tilt data-tilt-scale="1.4">
           </div>
-        </div>
-      </div>
-</div>
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col">
-            <div class="cards" style="width: 18rem;">
-                <img src="img/kopi4.png" class="card-img-top mx-auto" alt="..." style="width: 400px; height: 450px;" data-tilt data-tilt-scale="1.1">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="cards" style="width: 18rem;">
-                <img src="img/kopi5.png" class="card-img-top" alt="..." style="max-width: 230px;" data-tilt data-tilt-scale="1.1">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-          </div>
-          <div class="col">
-            <div class="cards" style="width: 18rem;">
-                <img src="img/kopi6.png" class="card-img-top" alt="..." style="max-width: 230px;" data-tilt data-tilt-scale="1.1">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <a href="/order" class="btn btn-primary mb-3" style="float: right;">Pesan</a>
+            <img src="/img/kopi4.jpg" alt="" class="img rounded-circle mt-5" width="250px" height="250px" data-tilt data-tilt-scale="1.4">
+          </div>
+          <div class="col">
+            <img src="/img/kopi5.jpg" alt="" class="img rounded-circle mt-5" width="250px" height="250px" data-tilt data-tilt-scale="1.4">
+          </div>
+          <div class="col">
+            <img src="/img/kopi6.jpg" alt="" class="img rounded-circle mt-5" width="250px" height="250px" data-tilt data-tilt-scale="1.4" >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <a href="/home" class="btn btn-primary mb-3" style="float: right;">Pesan</a>
           </div>
         </div>
       </div>
-
       <footer class="text-center text-lg-start bg-light text-muted pt-4">
         <section class="">
           <div class="container text-center text-md-start mt-5">
@@ -92,8 +67,8 @@
               <!-- Grid column -->
               <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                 <!-- Content -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                  <i class="fas fa-gem me-3"></i>SMKN 11 BANDUNG
+                <h6 class="text-uppercase fw-bold mb-4" style="font-weight: 200px;">
+                  <i class="fas fa-gem me-3"></i>Starbuck Coffe
                 </h6>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi nemo iure enim laborum.
@@ -129,16 +104,13 @@
                   Useful links
                 </h6>
                 <p>
-                  <a href="#!" class="text-reset">Home</a>
+                  <a href="/" class="text-reset">Home</a>
                 </p>
                 <p>
-                  <a href="#!" class="text-reset">Profil</a>
+                  <a href="/login" class="text-reset">Login</a>
                 </p>
                 <p>
-                  <a href="#!" class="text-reset">Galeri Guru</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">Login</a>
+                  <a href="/register" class="text-reset">Register</a>
                 </p>
               </div>
               <!-- Grid column -->

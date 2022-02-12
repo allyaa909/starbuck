@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\order;
+use App\Models\detail_order;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Addtocart extends Model
 {
@@ -12,5 +14,7 @@ class Addtocart extends Model
     protected $fillable = [
         'detail_order_id'
     ];
-
+    public function detail_order(){
+        return $this->belongsTo(detail_order::class);
+    }
 }
