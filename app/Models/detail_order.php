@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\kopi;
+use App\Models\size;
 use App\Models\User;
 use App\Models\order;
 use App\Models\Addtocart;
@@ -30,5 +31,8 @@ class detail_order extends Model
     }
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function size(){
+        return $this->belongsTo(size::class);
     }
 }

@@ -82,4 +82,10 @@ class AddtocartController extends Controller
         'pesanan' =>  $pesanan
       ]);
     }
+
+    public function trash($id){
+      $detail = detail_order::find($id);
+      $detail->delete();
+      return redirect('/checkout');
+    }
 }

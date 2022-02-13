@@ -2,7 +2,8 @@
 
 @section('content')
     <title>Checkout</title>
-    <div class="container">
+    {{-- <div class="container"> --}}
+      <div class="cek mr-5 ml-5">
       <div class="row">
         <div class="col">
           <h2 class="text-center mb-5" style="font-family: 'Poppins', sans-serif;">Keranjang Belanja</h2>
@@ -14,6 +15,7 @@
             <thead>
             <tr>
               <th>Produk</th>
+              <th>Nama</th>
               <th>Size</th>
               <th>Jumlah</th>
               <th>Harga</th>
@@ -24,34 +26,33 @@
                 <tr>                  
                   <td>
                     <img src="/img/{{ $d->kopi->img }}" alt="" width="100px" height="100px">
-                    {{ $d->kopi->nama}}
+                    
+                  </td>
+                  <td>{{ $d->kopi->nama}}</td>
+                  <td>
+                      {{ $d->size->ukuran }}
                   </td>
                   <td>
-                    <select name="size">
-                      <option value="s">{{ $d->total }}</option>
-                    </select>
+                    {{ $d->jumlah }}
                   </td>
                   <td>
-                    <select name="jumlah">
-                      @for ($i = 1; $i < 100; $i++)
-                          
-                      <option value="{{ $i }}">{{ $i }}</option>
-                      @endfor
-                    </select>
+                   Rp. {{ $d->total }}
                   </td>
+                  <form action="/trash/{{ $d->id }}">
                   <td>
-                    {{ $d->kopi->harga }}
+                    <button type="sumbit"><i class="bi bi-trash-fill"></i></button>
                   </td>
+                </form>
                 </tr>
             @endforeach
           </tbody>  
           </table>
         </div>
         <div class="col-md-4 ml-3 mt-3">
-          <div class="card">
+          <div class="card bg-dark" style="color: aliceblue;">
             <div class="card-body">
               <h5 class="card-title text-center">Pembayaran</h5>
-              <div class="mt-4" style="border-bottom: 1px solid black;"></div>
+              <div class="mt-4" style="border-bottom: 1px solid white;"></div>
               <div class="row mt-5">
                 <div class="col">
                   <div class="form-check">
@@ -76,7 +77,7 @@
               <div class="row">
                 <div class="col">
                  
-                 <p>Total : <br> Rp. 1.000.000 </p>
+                 <p>Total : <br> {{ $sum }} </p>
          
                 </div>
               </div>
@@ -86,4 +87,5 @@
         </div>
       </div>
     </div>
+    {{-- </div>\\ --}}
 @endsection

@@ -32,6 +32,7 @@ Route::get('/order', [App\Http\Controllers\KopiController::class, 'lihatmenu']);
 Route::get('/check', [App\Http\Controllers\Backend\OrderController::class, 'store']);
 Route::get('/checkout', [App\Http\Controllers\KopiController::class, 'lihat']);
 Route::get('/checkout/{id}', [App\Http\Controllers\AddtocartController::class, 'ambil']);
+Route::get('/trash/{id}', [App\Http\Controllers\AddtocartController::class, 'trash']);
 
 Auth::routes();
 
