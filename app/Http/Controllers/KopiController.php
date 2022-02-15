@@ -20,11 +20,13 @@ class KopiController extends Controller
     $price = detail_order::where('total',Auth::user()->id)->get();
     $detail = detail_order::where('user_id',Auth::user()->id)->get();
     $sum = detail_order::where('user_id',Auth::user()->id)->get()->sum("total");
+    $jumlah = detail_order::where('user_id',Auth::user()->id)->get()->sum("jumlah");
     return view ('checkout', [
         "detail" => $detail,
         "pesanan" => $pesanan,
         "price" => $price,
-        "sum" => $sum
+        "sum" => $sum,
+        "jumlah" => $jumlah
         ]);
 
 

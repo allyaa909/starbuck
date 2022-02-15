@@ -14,12 +14,7 @@ class detail_order extends Model
 {
     protected $table = "detail_order";
 
-    protected $fillable = [
-        'kopi_id',
-        'order_id',
-        'user_id',
-        'jumlah'
-    ];
+    protected $guarded = [];
 
     // protected $guarded = ['total'];
    

@@ -19,9 +19,9 @@ class AddtocartController extends Controller
       // $size = size::where('id', $id)->first();
      
       
-      $pesanan = detail_order::where('user_id', Auth::user()->id)->first();
+      // $pesanan = detail_order::where('user_id', Auth::user()->id)->first();
 
-      $user_id =  Auth::user()->id;
+      // $user_id =  Auth::user()->id;
       $price = $request->harga;
       if ($request->size == 1){
         $request->harga = $price+0;
@@ -32,8 +32,18 @@ class AddtocartController extends Controller
       elseif ($request->size == 3){
         $request->harga = $price-$price*10/100;
       }
-        $all = $request->jumlah*$request->harga;
 
+      $cekdata = detail_order::where('kopi_id', $kopi->id)->where('user_id', Auth::id())->where('size_id', $request->size)->first();
+      if($cekdata){
+        $total_pemesanan = $cekdata->jumlah + 1;
+        $harga =  $total_pemesanan * $cekdata->total;
+        $cekdata->update([
+            'jumlah' => $cekdata->jumlah + 1,
+            'total' => $harga
+        ]);
+    }else {
+        $all = $request->jumlah*$request->harga;
+    
         $detail = new detail_order;
         $detail->kopi_id = $kopi->id;
         $detail->user_id = Auth::user()->id;
@@ -41,10 +51,14 @@ class AddtocartController extends Controller
         $detail->jumlah = $request->jumlah;
         $detail->total = $all;
         $detail->save();
+    }
+      
+      
+     
         
         
         
-        $jumlah = detail_order::where('total', Auth::user()->id)->first();
+        // $jumlah = detail_order::where('total', Auth::user()->id)->first();
       
           
         
@@ -72,16 +86,16 @@ class AddtocartController extends Controller
         return redirect('/home');
           
     }
-    public function checkout(){
+    // public function checkout(){
       
-      $pesanan = Auth::user();
+    //   $pesanan = Auth::user();
     
-      $detail = detail_order::all();
-      return view ('checkout' , [
-        'detail' => $detail,
-        'pesanan' =>  $pesanan
-      ]);
-    }
+    //   $detail = detail_order::all();
+    //   return view ('checkout' , [
+    //     'detail' => $detail,
+    //     'pesanan' =>  $pesanan
+    //   ]);
+    // }
 
     public function trash($id){
       $detail = detail_order::find($id);

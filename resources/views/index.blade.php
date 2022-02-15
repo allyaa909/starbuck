@@ -17,7 +17,7 @@
           <div class="row">
             <div class="col">
               <a href="/register" style="float: right; border-radius: 50px;" class="ml-3 btn btn-dark">Register</a>
-              <a href="/login" style="float: right; border-radius: 50px;" class="mr-1 btn btn-dark">Login</a>
+              <a href="" style="float: right; border-radius: 50px;" class="mr-1 btn btn-dark">Login</a>
           </div>  
           </div>
           <img src="img/bg2.png" alt="" class="rounded-circle" width="150px" height="140px">
@@ -25,32 +25,84 @@
         </div>
       </div>
       
-<div class="judul text-center mb-5">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/dis1.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/dis2.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/dis3.png" class="d-block w-100" alt="...">
+          </div>
+        </div>
+       <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </button>
+      </div>
+
+<div class="judul text-center mb-5 mt-5">
     <h1>Daftar Menu</h1>
 </div>
       <div class="container">
         <div class="row">
           <div class="col">
-            <img src="/img/kopi1.jpg" alt="" class="img rounded-circle" width="250px" height="250px" data-tilt data-tilt-scale="1.4">
+            <figure>
+            <img src="/img/kopi1.jpg" alt="" class="img rounded-circle foto" width="250px" height="250px" data-tilt data-tilt-scale="1.4">
+            <figcaption>
+              Latte
+            </figcaption>
+          </figure>
           </div>
           <div class="col">
-            <img src="/img/kopi2.jpg" alt="" class="img rounded-circle" width="250px" height="250px" data-tilt data-tilt-scale="1.4">
+            <figure>
+             <img src="/img/kopi2.jpg" alt="" class="img rounded-circle foto" width="250px" height="250px" data-tilt data-tilt-scale="1.4">
+              <figcaption>
+                Dark Mocha
+              </figcaption>
+            </figure>
           </div>
           <div class="col">
             <div class="latte">
-            <img src="/img/kopi3.jpg" alt="" class="img rounded-circle" width="250px" height="250px" data-tilt data-tilt-scale="1.4">
+              <figure>
+            <img src="/img/kopi3.jpg" alt="" class="img rounded-circle foto" width="250px" height="250px" data-tilt data-tilt-scale="1.4">
+                <figcaption>
+                  Black Nigga
+                </figcaption>
+          </figure>
           </div>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <img src="/img/kopi4.jpg" alt="" class="img rounded-circle mt-5" width="250px" height="250px" data-tilt data-tilt-scale="1.4">
+            <figure class="mt-5">
+              <img src="/img/kopi4.jpg" alt="" class="img rounded-circle foto" width="250px" height="250px" data-tilt data-tilt-scale="1.4">
+              <figcaption>
+                Sugar White
+              </figcaption>
+            </figure>
+            </div>
+          <div class="col">
+            <figure class="mt-5">
+            <img src="/img/kopi5.jpg" alt="" class="img rounded-circle foto" width="250px" height="250px" data-tilt data-tilt-scale="1.4">
+              <figcaption>
+                Caramel White
+              </figcaption>
+          </figure>
           </div>
           <div class="col">
-            <img src="/img/kopi5.jpg" alt="" class="img rounded-circle mt-5" width="250px" height="250px" data-tilt data-tilt-scale="1.4">
-          </div>
-          <div class="col">
-            <img src="/img/kopi6.jpg" alt="" class="img rounded-circle mt-5" width="250px" height="250px" data-tilt data-tilt-scale="1.4" >
+            <figure class="mt-5">
+            <img src="/img/kopi6.jpg" alt="" class="img rounded-circle foto" width="250px" height="250px" data-tilt data-tilt-scale="1.4" >
+              <figcaption>
+                Caramel Black MAMBA
+              </figcaption>
+          </figure>
           </div>
         </div>
         <div class="row">
