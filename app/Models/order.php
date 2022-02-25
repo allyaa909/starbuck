@@ -9,15 +9,12 @@ class order extends Model
 {
 
     protected $table = "order";
-
-    protected $fillable = [
-        'kopi_id',
-        'total',
-        
+    protected $guarded = [];
+    protected $casts = [
+        'detail_order_id' => 'array'
     ];
-
     public function detail_order(){
-        return $this->hasMany(detail_order::class);
+        return $this->belongsTo(detail_order::class);
     }
 
 }

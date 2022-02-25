@@ -20,6 +20,7 @@ class CreateDetailOrderTable extends Migration
             $table->foreignId('size_id');
             $table->integer('jumlah');
             $table->integer('total');
+            $table->string('struk');
             $table->timestamps();
         });
     }

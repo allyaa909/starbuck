@@ -7,8 +7,9 @@ use App\Models\size;
 use App\Models\User;
 use App\Models\order;
 use App\Models\Addtocart;
-use App\Models\detail_order; 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\detail_order; 
 use Illuminate\Support\Facades\Auth;
 
 class AddtocartController extends Controller
@@ -50,6 +51,7 @@ class AddtocartController extends Controller
         $detail->size_id = $request->size;
         $detail->jumlah = $request->jumlah;
         $detail->total = $all;
+        $detail->struk = Str::random(5);
         $detail->save();
     }
       

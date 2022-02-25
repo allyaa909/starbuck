@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PayController;
+use App\Http\Controllers\CashController;
 use App\Http\Controllers\KopiController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\ConfirmController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Middleware\PreventBackHistory;
 use App\Http\Controllers\AddtocartController;
@@ -46,6 +48,7 @@ Route::get('/checkout/{id}', [App\Http\Controllers\AddtocartController::class, '
 Route::get('/trash/{id}', [App\Http\Controllers\AddtocartController::class, 'trash']);
 // Route::get('/confirm', [App\Http\Controllers\PaymentController::class, 'pay']);
 Route::post('/confirm', [App\Http\Controllers\EmailController::class, 'confirm']);
+Route::post('/bayar', [App\Http\Controllers\BayarController::class, 'pay']);
 
 Auth::routes();
 
@@ -66,3 +69,5 @@ Route::prefix('admin')->name('admin.')->group(function(){
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('admin/verifikasi', [App\Http\Controllers\PayController::class, 'verifikasi']);
+Route::get('cash/{id}', [App\Http\Controllers\CashController::class, 'check']);
+Route::get('/konfirmasi', [App\Http\Controllers\ConfirmController::class, 'confirm']);

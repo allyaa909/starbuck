@@ -15,11 +15,12 @@ class CreateOrderTable extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('detail_order_id');
-            $table->boolean('status_payment'); 
-            $table->string('kode_cash')->nullable();
-            $table->string('kode_scan')->nullable();
-            $table->timestamps();
+                $table->string('detail_order_id')->references('struk')->on('detail_order');
+                $table->boolean('status_payment')->nullable();
+                $table->string('kode_cash')->nullable();
+                $table->string('kode_scan')->nullable();
+                $table->timestamps();
+           
         });
     }
 

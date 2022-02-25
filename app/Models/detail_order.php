@@ -21,6 +21,9 @@ class detail_order extends Model
     public function Addtocart(){
         return $this->hasMany(Addtocart::class);
     }
+    public function order(){
+        return $this->hasMany(order::class);
+    }
     public function kopi(){
         return $this->belongsTo(kopi::class);
     }

@@ -17,7 +17,7 @@
           <div class="row">
             <div class="col">
               <a href="/register" style="float: right; border-radius: 50px;" class="ml-3 btn btn-dark">Register</a>
-              <a href="" style="float: right; border-radius: 50px;" class="mr-1 btn btn-dark">Login</a>
+              <a href="/login" style="float: right; border-radius: 50px;" class="mr-1 btn btn-dark">Login</a>
           </div>  
           </div>
           <img src="img/bg2.png" alt="" class="rounded-circle" width="150px" height="140px">

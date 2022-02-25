@@ -23,8 +23,10 @@
             </tr>
           </thead>
           <tbody>
+           
             @foreach ($detail as $d)
-                <tr>                  
+                <tr>
+                  <input type="hidden" name = "detail" value="{{ $d->id }}">          
                   <td>
                     <img src="/img/{{ $d->kopi->img }}" alt="" width="100px" height="100px">
                     
@@ -52,18 +54,21 @@
         <div class="col-md-4 ml-3 mt-3">
           <div class="card bg-dark" style="color: aliceblue; width: 23rem;">
             <div class="card-body">
+        
+              <form action="/bayar" method="post">
+                @csrf
               <h5 class="card-title text-center">Pembayaran</h5>
               <div class="mt-4" style="border-bottom: 1px solid white;"></div>
               <div class="row mt-5">
                 <div class="col">
                   <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <input class="form-check-input" type="radio" name="pay" id="flexRadioDefault1" value = "1">
                     <label class="form-check-label" for="flexRadioDefault1">
                       <i class="fas fa-money-bill"></i> Cash
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <input class="form-check-input" type="radio" name="pay" id="flexRadioDefault1" value = "2">
                     <label class="form-check-label" for="flexRadioDefault1">
                       <i class="fab fa-paypal"></i> Paypal
                     </label>
@@ -73,8 +78,11 @@
               <br>
               <div class="row mt-2">
                 <div class="col-md-9">
-                  <form action="/confirm" method="post">
-                    @csrf
+                 
+                    
+                    @foreach ($detail as $d)
+                        <input type="hidden" name = "detail[]" value = "{{ $d->struk }}" multiple>
+                    @endforeach
                     <p>Nama Meja :</p>
                 </div>
                 <div class="col">
