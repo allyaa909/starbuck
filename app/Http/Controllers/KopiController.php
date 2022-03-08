@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\kopi;
+use App\Models\Tampilan;
 use App\Models\detail_order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -30,5 +31,12 @@ class KopiController extends Controller
         ]);
 
 
+    }
+
+    public function index(){
+        $tampilan = Tampilan::all();
+        return view ('index',[
+            "tampilan" => $tampilan
+        ]);
     }
 }

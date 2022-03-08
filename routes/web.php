@@ -26,10 +26,7 @@ use App\Http\Controllers\Backend\OrderController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [App\Http\Controllers\KopiController::class, 'index']);
 // Route::get('/confirm', function () {
 //     return view('confirm');
 // });
@@ -63,6 +60,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::middleware(['auth:admin'])->group(function(){
         Route::view('/home','admin.index')->name('home');
         Route::post('/logout',[AdminController::class,'logout'])->name('logout');
+        Route::get('/customer',[AdminController::class,'customer'])->name('customer');
+        Route::get('/order',[AdminController::class,'order'])->name('order');
+        Route::get('/products',[AdminController::class,'view'])->name('products');
+        Route::get('/update',[AdminController::class,'update'])->name('update');
     });
 
 });

@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -17,11 +18,22 @@
           <div class="row">
             <div class="col">
               <a href="/register" style="float: right; border-radius: 50px;" class="ml-3 btn btn-dark">Register</a>
-              <a href="/login" style="float: right; border-radius: 50px;" class="mr-1 btn btn-dark">Login</a>
+              @guest
+              @if (Route::has('login'))
+                      <a class="ml-3 btn btn-dark" href="{{ route('login') }}" style="float: right; border-radius: 50px;">{{ __('Login') }}</a>
+                  @else
+                  <a class="ml-3 btn btn-dark" href="{{ route('login') }}" style="float: right; border-radius: 50px;">{{ __('Login') }}</a>
+              @endif
+              @endguest
+              
+
           </div>  
           </div>
-          <img src="img/bg2.png" alt="" class="rounded-circle" width="150px" height="140px">
-          <p class="lead mt-5 ketik" style="color: white; font-size: 70px;"><q>Start Your Day <br>With Coffee</q></p>
+          @foreach ($tampilan as $item)
+              
+         
+          <img src="img/{{ $item->logo }}" alt="" class="rounded-circle" width="150px" height="140px">
+          <p class="lead mt-5 ketik" style="color: white; font-size: 70px;"><q>{{ $item->tittle }}</q></p>
         </div>
       </div>
       
@@ -114,11 +126,11 @@
       <footer class="text-center text-lg-start bg-light text-muted pt-4">
         <section class="">
           <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
+        
             <div class="row mt-3">
-              <!-- Grid column -->
+              
               <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                <!-- Content -->
+               
                 <h6 class="text-uppercase fw-bold mb-4" style="font-weight: 200px;">
                   <i class="fas fa-gem me-3"></i>Starbuck Coffe
                 </h6>
@@ -126,32 +138,9 @@
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi nemo iure enim laborum.
                 </p>
               </div>
-              <!-- Grid column -->
-      
-              <!-- Grid column -->
-              {{-- <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                  Products
-                </h6>
-                <p>
-                  <a href="#!" class="text-reset">Angular</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">React</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">Vue</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">Laravel</a>
-                </p>
-              </div> --}}
-              <!-- Grid column -->
-      
-              <!-- Grid column -->
+
               <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
+              
                 <h6 class="text-uppercase fw-bold mb-4">
                   Useful links
                 </h6>
@@ -165,11 +154,9 @@
                   <a href="/register" class="text-reset">Register</a>
                 </p>
               </div>
-              <!-- Grid column -->
-      
-              <!-- Grid column -->
+              
               <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                <!-- Links -->
+               
                 <h6 class="text-uppercase fw-bold mb-4">
                   Contact
                 </h6>
@@ -180,14 +167,12 @@
                 <p><i class="fas fa-phone me-3"></i>022-6652442</p>
                 <p><i class="fas fa-print me-3"></i> 022-6652442</p>
               </div>
-              <!-- Grid column -->
+             
             </div>
-            <!-- Grid row -->
+           
           </div>
         </section>
-        <!-- Section: Links  -->
-      
-        <!-- Copyright -->
+       
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
           © 2021 Copyright:
           <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Yogi</a>
@@ -199,21 +184,15 @@
             </div>
           </div>
         </div>
-        <!-- Copyright -->
+        
       </footer>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+   
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-    -->
+  
     <script type="text/javascript" src="/js/vanilla-tilt.min.js"></script>
+    @endforeach
   </body>
 </html>
