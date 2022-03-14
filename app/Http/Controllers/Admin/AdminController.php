@@ -55,27 +55,196 @@ class AdminController extends Controller
         return view ('admin.products', [
             "view" => $view
         ]);
-    }
+     }
     public function update(Request $request){
-        $imgData = array();
-        if($request->hasfile('image')) {
-            foreach($request->file('image') as $file)
-            {
-                $name = $file->getClientOriginalName();
-                $file->move(public_path().'/storage/post-images/', $name);  
-                $imgData[] = $name;  
-            }
-        }
+   
     
         $page = Tampilan::find(1);
-        $view = Tampilan::all();
+        $old_logo = $page->logo;
+        $old_img1 = $page->img1;
+        $old_img2 = $page->img2;
+        $old_img3 = $page->img3;
+ 
+    
+if ($request->hasFile( 'logo') && $request->hasFile('img1')  && $request->hasFile('img2')  && $request->hasFile('img3')){
+    $logo = $request->file('logo')->getClientOriginalName();
+        $request->file('logo')->move(public_path().'/storage/images/', $logo);
+        $img1 = $request->file('img1')->getClientOriginalName();
+        $request->file('img1')->move(public_path().'/storage/images/', $img1);
+        $img2 = $request->file('img2')->getClientOriginalName();
+        $request->file('img2')->move(public_path().'/storage/images/', $img2);
+         $img3 = $request->file('img3')->getClientOriginalName();
+    $request->file('img3')->move(public_path().'/storage/images/', $img3);
         $page->update([
-            "logo" => $request->logo,
-            "tittle" => $request->tittle,
-            "banner" => $request->logo,
-        ]);
-        return view('admin.products',[
-            "view" => $view
+            "logo" => $logo,
+            "title" => $request->title,
+            "brand" => $request->brand,
+            "desc" => $request->desc,
+            "img1" => $img1,
+            "img2" => $img2,
+            "img3" => $img3
         ]);
     }
+
+ 
+ elseif ($request->hasFile( 'logo') && $request->hasFile('img1')){
+    $logo = $request->file('logo')->getClientOriginalName();
+    $request->file('logo')->move(public_path().'/storage/images/', $logo);
+    $img1 = $request->file('img1')->getClientOriginalName();
+    $request->file('img1')->move(public_path().'/storage/images/', $img1);
+
+    $page->update([
+        "logo" => $logo,
+        "title" => $request->title,
+        "brand" => $request->brand,
+        "desc" => $request->desc,
+        "img1" => $img1,
+        "img2" => $old_img2,
+        "img3" => $old_img3
+    ]);
 }
+ 
+ elseif ($request->hasFile( 'logo') && $request->hasFile('img2')){
+    $logo = $request->file('logo')->getClientOriginalName();
+    $request->file('logo')->move(public_path().'/storage/images/', $logo);
+    $img2 = $request->file('img2')->getClientOriginalName();
+    $request->file('img2')->move(public_path().'/storage/images/', $img2);
+    $page->update([
+        "logo" => $logo,
+        "title" => $request->title,
+        "brand" => $request->brand,
+        "desc" => $request->desc,
+        "img1" => $old_img1,
+        "img2" => $img2,
+        "img3" => $old_img3
+    ]);
+}
+ elseif ($request->hasFile( 'logo') && $request->hasFile('img3')){
+    $logo = $request->file('logo')->getClientOriginalName();
+    $request->file('logo')->move(public_path().'/storage/images/', $logo);
+    $img3 = $request->file('img3')->getClientOriginalName();
+    $request->file('img3')->move(public_path().'/storage/images/', $img3);
+    $page->update([
+        "logo" => $logo,
+        "title" => $request->title,
+        "brand" => $request->brand,
+        "desc" => $request->desc,
+        "img1" => $old_img1,
+        "img2" => $old_img2,
+        "img3" => $img3
+    ]);
+}
+ elseif ($request->hasFile( 'img1') && $request->hasFile('img2')){
+    $img1 = $request->file('img1')->getClientOriginalName();
+    $request->file('img1')->move(public_path().'/storage/images/', $img1);
+    $img2 = $request->file('img2')->getClientOriginalName();
+    $request->file('img2')->move(public_path().'/storage/images/', $img2);
+    $page->update([
+        "logo" => $old_logo,
+        "title" => $request->title,
+        "brand" => $request->brand,
+        "desc" => $request->desc,
+        "img1" => $img1,
+        "img2" => $img2,
+        "img3" => $old_img3
+    ]);
+}
+ elseif ($request->hasFile( 'img1') && $request->hasFile('img3')){
+    $img1 = $request->file('img1')->getClientOriginalName();
+    $request->file('img1')->move(public_path().'/storage/images/', $img1);
+    $img3 = $request->file('img3')->getClientOriginalName();
+    $request->file('img3')->move(public_path().'/storage/images/', $img3);
+    $page->update([
+        "logo" => $old_logo,
+        "title" => $request->title,
+        "brand" => $request->brand,
+        "desc" => $request->desc,
+        "img1" => $img1,
+        "img2" => $old_img2,
+        "img3" => $img3
+    ]);
+}
+ elseif ($request->hasFile( 'img2') && $request->hasFile('img3')){
+    $img2 = $request->file('img2')->getClientOriginalName();
+    $request->file('img2')->move(public_path().'/storage/images/', $img2);
+    $img3 = $request->file('img3')->getClientOriginalName();
+    $request->file('img3')->move(public_path().'/storage/images/', $img3);
+    $page->update([
+        "logo" => $old_logo,
+        "title" => $request->title,
+        "brand" => $request->brand,
+        "desc" => $request->desc,
+        "img1" => $old_img1,
+        "img2" => $img2,
+        "img3" => $img3
+    ]);
+}
+ elseif ($request->hasFile( 'logo')){
+    $logo = $request->file('logo')->getClientOriginalName();
+    $request->file('logo')->move(public_path().'/storage/images/', $logo);
+    $page->update([
+        "logo" => $logo,
+        "title" => $request->title,
+        "brand" => $request->brand,
+        "desc" => $request->desc,
+        "img1" => $old_img1,
+        "img2" => $old_img2,
+        "img3" => $old_img3
+    ]);
+}
+ elseif ($request->hasFile( 'img1')){
+    $img1 = $request->file('img1')->getClientOriginalName();
+    $request->file('img1')->move(public_path().'/storage/images/', $img1);
+    $page->update([
+        "logo" => $old_logo,
+        "title" => $request->title,
+        "brand" => $request->brand,
+        "desc" => $request->desc,
+        "img1" => $img1,
+        "img2" => $old_img2,
+        "img3" => $old_img3
+    ]);
+}
+ elseif ($request->hasFile( 'img2')){
+    $img2 = $request->file('img2')->getClientOriginalName();
+    $request->file('img2')->move(public_path().'/storage/images/', $img2);
+    $page->update([
+        "logo" => $old_logo,
+        "title" => $request->title,
+        "brand" => $request->brand,
+        "desc" => $request->desc,
+        "img1" => $old_img1,
+        "img2" => $img2,
+        "img3" => $old_img3
+    ]);
+}
+ elseif ($request->hasFile( 'img3')){
+    $img3 = $request->file('img3')->getClientOriginalName();
+    $request->file('img3')->move(public_path().'/storage/images/', $img3);
+    $page->update([
+        "logo" => $old_logo,
+        "title" => $request->title,
+        "brand" => $request->brand,
+        "desc" => $request->desc,
+        "img1" => $old_img1,
+        "img2" => $old_img2,
+        "img3" => $img3
+    ]);
+}
+
+else {
+    $page->update([
+        "logo" => $old_logo,
+        "title" => $request->title,
+        "brand" => $request->brand,
+        "desc" => $request->desc,
+        "img1" => $old_img1,
+        "img2" => $old_img2,
+        "img3" => $old_img3
+    ]);
+}
+ 
+         return "hm";   
+    
+}
+    }

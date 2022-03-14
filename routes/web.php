@@ -63,7 +63,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/customer',[AdminController::class,'customer'])->name('customer');
         Route::get('/order',[AdminController::class,'order'])->name('order');
         Route::get('/products',[AdminController::class,'view'])->name('products');
-        Route::get('/update',[AdminController::class,'update'])->name('update');
+        Route::post('/update',[AdminController::class,'update'])->name('update');
     });
 
 });

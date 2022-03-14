@@ -16,8 +16,12 @@ class CreateTampilanTable extends Migration
         Schema::create('tampilan', function (Blueprint $table) {
             $table->id();
             $table->string('logo');
-            $table->string('tittle');
-            $table->string('banner');
+            $table->string('title');
+            $table->string('brand');
+            $table->string('desc');
+            $table->string('img1');
+            $table->string('img2');
+            $table->string('img3');
             $table->timestamps();
         });
     }
