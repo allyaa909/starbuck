@@ -7,11 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <table>
-        <tr>
-            <td>{{ $kode }}</td>
-            <td>{{ $meja }}</td>
-        </tr>
-    </table>
+    @foreach ($pesanan as $item)
+        <table>
+            <tr>
+                <td>{{ $item->kopi->nama }}</td>
+                <td>{{ $item->user->name }}</td>
+            </tr>
+        </table>
+        
+    @endforeach
 </body>
 </html>

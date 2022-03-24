@@ -32,9 +32,18 @@
                     
                   </td>
                   <td>{{ $d->kopi->nama}}</td>
-                  <td>
+                 
+                    @if ($d->size_id == 0)
+                    <td>
+                     <p>-</p>
+                  </td>
+                    @else 
+                    <td>
                       {{ $d->size->ukuran }}
                   </td>
+                        
+                    @endif
+                   
                   <td>
                     {{ $d->jumlah }}
                   </td>
@@ -43,7 +52,7 @@
                   </td>
                   <form action="/trash/{{ $d->id }}">
                   <td style="border: none;">
-                    <button type="sumbit"><i class="bi bi-trash-fill"></i></button>
+                    <button type="sumbit" id= "trash"><i class="bi bi-trash-fill"></i></button>
                   </td>
                 </form>
                 </tr>
@@ -124,4 +133,5 @@
       </div>
     </div>
     {{-- </div>\\ --}}
+    
 @endsection

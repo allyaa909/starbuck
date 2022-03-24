@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Search;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\CashController;
@@ -63,6 +64,13 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/customer',[AdminController::class,'customer'])->name('customer');
         Route::get('/order',[AdminController::class,'order'])->name('order');
         Route::get('/products',[AdminController::class,'view'])->name('products');
+        Route::get('/order',[AdminController::class,'order'])->name('order');
+        Route::get('/pesanan',[AdminController::class,'pesanan'])->name('pesanan');
+        Route::get('/menu',[AdminController::class,'menu'])->name('menu');
+        Route::get('/coffee/{id}',[AdminController::class,'coffee']);
+        Route::get('/bakery/{id}',[AdminController::class,'bakery']);
+        Route::get('/updatecoffee',[AdminController::class,'updatecoffee'])->name('updatecoffee');
+        Route::get('/addcoffee/{id}',[AdminController::class,'addcoffee']);
         Route::post('/update',[AdminController::class,'update'])->name('update');
     });
 
@@ -72,3 +80,22 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('admin/verifikasi', [App\Http\Controllers\PayController::class, 'verifikasi']);
 Route::get('cash/{id}', [App\Http\Controllers\CashController::class, 'check']);
 Route::get('/konfirmasi', [App\Http\Controllers\ConfirmController::class, 'confirm']);
+
+Route::get('/home/coffee',[App\Http\Controllers\KopiController::class, 'coffe']); {
+}
+
+Route::get('/home/baverages', function () {
+    return view('order.bakery', [
+        "title" => "Bakery" 
+    ]);
+});
+
+Route::get('/home/bakery',[App\Http\Controllers\KopiController::class, 'bakery']); {
+  
+}
+Route::get('/home/snacks',[App\Http\Controllers\KopiController::class, 'snacks']); {
+  
+}
+Route::get('/search',[App\Http\Controllers\Search::class, 'search']); {
+  
+}

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKopiTable extends Migration
+class CreateSnackTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateKopiTable extends Migration
      */
     public function up()
     {
-        Schema::create('kopi', function (Blueprint $table) {
+        Schema::create('snack', function (Blueprint $table) {
             $table->id();
             $table->string('img');
-            $table->string('nama'); 
+            $table->string('nama');
             $table->integer('harga');
             $table->integer('stok');
             $table->foreignId('kategori_id');
@@ -31,6 +31,6 @@ class CreateKopiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kopi');
+        Schema::dropIfExists('snack');
     }
 }

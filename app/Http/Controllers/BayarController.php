@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kode;
 use App\Models\order;
 use Illuminate\Support\Str;
 use App\Models\detail_order;
@@ -83,14 +84,35 @@ if ($request->pay == 1){
     $imp =  implode( ',' ,$detail);
     $code = order::where('detail_order_id', $imp)->pluck('id');
     
-$ord = order::all();
-    
-    
+// $ord = order::all();
+
+$struk = order::where('detail_order_id', $imp)->value('kode_cash');
+$orderid = order::where('detail_order_id', $imp)->value('id');
+
+$detid =  order::where('detail_order_id', $imp)->pluck('detail_order_id');
+
+foreach ($detid as $det) {
+    $show = detail_order::where('struk' , $det)->value('user_id');
+}
+
+$kode = new Kode;
+$kode->kode_cash = $orderid;
+$kode->user_id = $show;
+$kode->save();
+
+// $cash = order::where('id' , $orderid)->value('kode_cash');
+// $meja = User::where('id', $show)->value('name');
+
+// view('admin.order',[
+//     "orderid" => $orderid,
+//     "show" => $show
+// ]);
     return view('cash',[
         "order" => $order,
         "id" => $code,
         "detail" => $detail,
-        "ord" => $ord
+        "orderid" => $orderid,
+        "show" => $show
     ]);
 }
 elseif ($request->pay == 2){
@@ -119,7 +141,8 @@ else {
 
     return redirect()->back();
 }
-       
+
+
    
 }
 }

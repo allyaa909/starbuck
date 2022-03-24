@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Kode;
 use App\Models\kopi;
 use App\Models\size;
 use App\Models\User;
@@ -32,5 +33,9 @@ class detail_order extends Model
     }
     public function size(){
         return $this->belongsTo(size::class);
+    }
+
+    public function kode(){
+        return $this->hasMany(Kode::class);
     }
 }

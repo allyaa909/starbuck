@@ -73,9 +73,21 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('admin.order') }}">
               <span data-feather="file"></span>
               Orders
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.menu') }}">
+              <span data-feather="file"></span>
+              Menu
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.pesanan') }}">
+              <span data-feather="file"></span>
+              Pesanan
             </a>
           </li>
           <li class="nav-item">

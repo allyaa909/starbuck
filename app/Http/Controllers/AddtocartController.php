@@ -17,12 +17,21 @@ class AddtocartController extends Controller
     public function ambil($id, Request $request){
      
       $kopi = kopi::where('id', $id)->first();
-      // $size = size::where('id', $id)->first();
-     
       
-      // $pesanan = detail_order::where('user_id', Auth::user()->id)->first();
+      $kat = kopi::where('id',$id)->value('kategori_id');
+      $rsize = $request->size;
+     
+      if ($kat == 2 ){
+        $size = 0;
+      }
+      elseif($kat== 3) {
+        $size = 0;
+      }
+      elseif($kat== 1) {
+        $size = $rsize;
+      }
+      
 
-      // $user_id =  Auth::user()->id;
       $price = $request->harga;
       if ($request->size == 1){
         $request->harga = $price+0;
@@ -33,9 +42,13 @@ class AddtocartController extends Controller
       elseif ($request->size == 3){
         $request->harga = $price-$price*10/100;
       }
+      else {
+        $request->harga = $price;
+      }
 
-      $cekdata = detail_order::where('kopi_id', $kopi->id)->where('user_id', Auth::id())->where('size_id', $request->size)->first();
-      if($cekdata){
+      $cekdata = detail_order::where('kopi_id', $kopi->id)->first();
+      $cekjml = detail_order::where('user_id', Auth::id())->where('size_id', $request->size)->first();
+      if($cekdata || $cekjml){
         $total_pemesanan = $cekdata->jumlah + 1;
         $harga =  $total_pemesanan * $cekdata->total;
         $cekdata->update([
@@ -46,9 +59,9 @@ class AddtocartController extends Controller
         $all = $request->jumlah*$request->harga;
     
         $detail = new detail_order;
-        $detail->kopi_id = $kopi->id;
+        $detail->kopi_id = $id;
         $detail->user_id = Auth::user()->id;
-        $detail->size_id = $request->size;
+        $detail->size_id = $size;
         $detail->jumlah = $request->jumlah;
         $detail->total = $all;
         $detail->struk = Str::random(5);
@@ -57,7 +70,7 @@ class AddtocartController extends Controller
       
       
      
-        
+        // return "hm";
         
         
         // $jumlah = detail_order::where('total', Auth::user()->id)->first();

@@ -14,6 +14,7 @@ class CashController extends Controller
         if ($request->code == $order){
             order::where('id', $id)->update(array('status_payment' => true));
             return view('konfirmasi');
+            
 
         }
         else {
