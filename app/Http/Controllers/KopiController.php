@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\kopi;
 use App\Models\size;
+use App\Models\Kategori;
 use App\Models\Tampilan;
 use App\Models\detail_order;
 use Illuminate\Http\Request;
@@ -29,12 +30,14 @@ class KopiController extends Controller
         "kopi" => $kopi
     ]);
 }
-    public function coffe(){
-    $kopi = kopi::where('kategori_id', 1)->get();
+    public function coffe($id){
+    $kopi = kopi::where('kategori_id', $id)->get();
     $size = size::all();
+    $id = $id;
     return view ('order.coffee', [
         "kopi" => $kopi,
-        "size" => $size
+        "size" => $size,
+        "id" => $id
     ]);
 }
     public function lihat(){

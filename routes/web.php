@@ -81,7 +81,7 @@ Route::get('admin/verifikasi', [App\Http\Controllers\PayController::class, 'veri
 Route::get('cash/{id}', [App\Http\Controllers\CashController::class, 'check']);
 Route::get('/konfirmasi', [App\Http\Controllers\ConfirmController::class, 'confirm']);
 
-Route::get('/home/coffee',[App\Http\Controllers\KopiController::class, 'coffe']); {
+Route::get('/home/coffee/{id}',[App\Http\Controllers\KopiController::class, 'coffe']); {
 }
 
 Route::get('/home/baverages', function () {

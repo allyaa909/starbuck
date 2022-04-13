@@ -9,10 +9,9 @@ class Search extends Controller
 {
     public function search(Request $request){
         $name = $request->name;
+        $id = $request->id;
+        $search = kopi::where('nama','like','%'.$name.'%')->get();
         
-        $bakery = kopi::where('kategori_id',2);
-        $search = $bakery->where('nama','like','%'.$name.'%')->get();
-
         return view('order.search',[
             "search" => $search
         ]);

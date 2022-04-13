@@ -4,10 +4,18 @@
 
 <section class="home">
  
+  <li class="search-box">
+    <i class='bx bx-search icon'></i>
+    <input type="text" id="search" placeholder="Search...">
+</li>
     <div class="text">Bakery</div>
+    <div class="keyup">
     <div class="row text">
+
       @foreach ($kopi as $item)
+      <input type="hidden" value = "{{ $id }}" id="id" >
       <form style="display: flex" action="/checkout/{{ $item->id }}">
+        
       <div class="col-9 lg-3">
         <div class="card mt-3">
           <img src="/img/{{ $item->img }}" class="card-img-top" alt="...">
@@ -24,9 +32,10 @@
               <input type="number" name = "jumlah" min="1" max="{{ $item->stok }}" value="1" class="ml-5">
           </div>
         </div>
-     
       </div>
-    </form>
+    
+       </form>
+    
         @endforeach
         
       
@@ -89,6 +98,30 @@
       </div> --}}
     </div>
   </div>
+  </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+ $('#search').on('keyup',function(){
+  var value = $(this).val();
+  var id = $('#id').val();
+  
+  $.ajax({
+    type: "GET",
+    url: "{{ url('search') }}",
+    data: {
+      "nama" : value, 
+      "id" : id
+    },
+    success:function(data){
+        $('.keyup').html(data)
+    }
+  });
+ });
+
+
+
+
+</script>
 
 @endsection
